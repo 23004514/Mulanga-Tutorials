@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mulanga Tutoring | Home</title>
+
+<style>
+
+/* ==============================
+   COLOR SYSTEM
+============================== */
+:root {
+  --bg-gradient: linear-gradient(135deg, #1685C3, #12804B);
+  --card-bg: rgba(255,255,255,0.25);
+  --card-bg-2: rgba(255,255,255,0.1);
+  --text: #ffffff;
+  --accent: #86daf3;
+}
+
+[data-theme="dark"] {
+  --bg-gradient: linear-gradient(135deg, #0b1f33, #041622);
+  --card-bg: rgba(255,255,255,0.12);
+  --card-bg-2: rgba(255,255,255,0.05);
+  --text: #eaf1f7;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Arial, sans-serif;
+  background: var(--bg-gradient);
+  color: var(--text);
+  padding: clamp(16px, 4vw, 40px);
+  min-height: 100vh;
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+/*MATH BACKGROUND */
+body::before {
+  content: "∑ x² + y² = r²   H₂O   CO₂   NaCl   PV=nRT   e⁻   π≈3.14   ∫ f(x)dx   ⚛   C₆H₁₂O₆    E=mc²    Photosynthesis   a² + b² = c²    Newton's Laws   F=ma   V=IR   λ=v/f   Δx·Δp≥h/4π   Assets = Liabilities + Equity   Revenue - Expenses = Net Income    Equity= Assets - Liabilities   Cash Flow = Net Income + Non-Cash Expenses - Change in Working Capital   DNA (Deoxyribonucleic acid)    Chromosome: Threadlike structure of DNA   Biotechnology: Use of living systems to develop products   Microbiology: Study of microscopic organisms.    Biosphere: The global ecosystem comprising all living organisms and their interactions with the environment.    ";
+  position: fixed;
+  inset: 0;
+  font-size: clamp(16px, 4vw, 32px);
+  line-height: 2.5;
+  color: rgba(255,255,255,0.12);
+  pointer-events: none;
+  white-space: pre-wrap;
+  animation: drift 70s ease-in-out infinite;
+  z-index: 0;
+}
+
+@keyframes drift {
+  0%,100% { transform: translate(0,0); }
+  50% { transform: translate(-20px,-20px); }
+}
+
+@media (max-width:600px){
+  body::before { display:none; }
+}
+
+/* ==============================
+   SITE CONTAINER
+============================== */
+.site {
+  max-width: 1200px;
+  margin: 0 auto;
+  background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
+  border-radius: 20px;
+  padding: 28px;
+  backdrop-filter: blur(12px);
+  position: relative;
+  z-index: 1;
+}
+
+/* ==============================
+   HEADER
+============================== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.logo {
+  height: clamp(60px, 8vw, 90px);
+  object-fit: contain;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.35));
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.2rem;
+  padding: 0;
+  margin: 0;
+}
+
+nav a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  position: relative;
+  padding: 6px 0;
+}
+
+nav a::after {
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-4px;
+  width:100%;
+  height:3px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:0.3s ease;
+}
+
+nav a:hover::after,
+nav a.active::after {
+  transform:scaleX(1);
+}
+
+/* ==============================
+   BANNER
+============================== */
+.banner {
+  height: 45vh;
+  min-height: 260px;
+  border-radius: 18px;
+  margin-bottom: 36px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.2), rgba(0,0,0,0.05)),
+              url('mathematicsPhineas.jpeg') center/cover no-repeat;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:20px;
+}
+
+.banner h1 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 0;
+}
+
+/* ==============================
+   LAYOUT
+============================== */
+.layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 28px;
+}
+
+.hero {
+  display: grid;
+  gap: 24px;
+}
+
+.card {
+  background: linear-gradient(180deg, var(--card-bg), var(--card-bg-2));
+  padding: 24px;
+  border-radius: 18px;
+  transition: 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: 20px;
+  height: fit-content;
+}
+
+.sidebar ul {
+  padding-left: 18px;
+}
+
+/* Buttons */
+.cta a {
+  display: inline-block;
+  margin: 10px 8px 0 0;
+  padding: 12px 20px;
+  background: white;
+  color: #0D4383;
+  border-radius: 14px;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.cta a:hover {
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 40px;
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; }
+  .sidebar { position: static; }
+  header { flex-direction: column; gap: 16px; }
+  nav ul { flex-wrap: wrap; justify-content: center; }
+}
+
+/* Floating Buttons */
+.floating-buttons {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  display: flex;
+  gap: 12px;
+  z-index: 1001;
+}
+
+.switch,
+.whatsapp {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.switch {
+  background: white;
+  cursor: pointer;
+}
+
+.switch input { display:none; }
+
+.slider {
+  width:36px;
+  height:20px;
+  background:#ccc;
+  border-radius:20px;
+  position:relative;
+}
+
+.slider::before {
+  content:"";
+  width:18px;
+  height:18px;
+  background:white;
+  position:absolute;
+  top:1px;
+  left:2px;
+  border-radius:50%;
+  transition:0.3s;
+}
+
+input:checked + .slider {
+  background: var(--accent);
+}
+
+input:checked + .slider::before {
+  transform:translateX(16px);
+}
+
+.whatsapp {
+  background:#4eaf71;
+  text-decoration:none;
+}
+
+.whatsapp svg {
+  width:28px;
+  fill:white;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="site">
+
+<header>
+  <a href="index.html">
+    <img src="mulanga-logo.png" alt="Mulanga Tutoring logo" class="logo">
+  </a>
+
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html" class="active">Services</a></li>
+      <li><a href="packages.html">Packages</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="banner">
+  <h1>Empowering Learners To Be More Than Average</h1>
+</div>
+
+<main class="layout">
+
+  <div class="hero">
+
+    <section class="card">
+      <h2>Welcome to Mulanga Tutoring</h2>
+      <p>
+        We help learners master Mathematics, Sciences, and Commerce subjects
+        with confidence and clarity.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>Faith & Excellence</h3>
+      <p>
+        We believe God wants us to be more than average.
+        Education is a tool for transformation and impact.
+      </p>
+    </section>
+
+    <section class="card">
+      <h3>Our Mission</h3>
+      <p>
+        We empower learners preparing for STEM and Commerce careers,
+        helping them excel academically and grow spiritually.
+      </p>
+    </section>
+
+  </div>
+
+  <aside class="sidebar card">
+    <h3>Why Choose Us?</h3>
+    <ul>
+      <li>Experienced tutors</li>
+      <li>Personalised learning</li>
+      <li>STEM & Commerce focused</li>
+      <li>Flexible scheduling</li>
+      <li>Affordable packages</li>
+    </ul>
+
+    <div class="cta">
+      <a href="packages.html">View Packages</a>
+      <a href="services.html">Our Services</a>
+    </div>
+  </aside>
+
+</main>
+
+<footer>
+  <p>&copy; 2026 Mulanga Tutoring. All rights reserved.</p>
+</footer>
+
+</div>
+
+<!-- Floating Buttons -->
+<div class="floating-buttons">
+  <label class="switch">
+    <input type="checkbox" id="themeToggle">
+    <span class="slider"></span>
+  </label>
+
+  <a class="whatsapp" href="https://wa.me/27847935219" target="_blank">
+    <svg viewBox="0 0 32 32">
+      <path d="M16 0C7.2 0 0 7.1 0 15.9c0 2.8.7 5.4 2.1 7.8L.1 32l8.5-2.7c2.3 1.2 4.9 1.9 7.5 1.9 8.8 0 15.9-7.1 15.9-15.9C32 7.1 24.8 0 16 0z"/>
+    </svg>
+  </a>
+</div>
+
+<script>
+const toggle = document.getElementById('themeToggle');
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.documentElement.setAttribute('data-theme', savedTheme);
+if(savedTheme === 'dark') toggle.checked = true;
+
+toggle.addEventListener('change', function(){
+  const theme = this.checked ? 'dark' : 'light';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+});
+</script>
+
+</body>
+</html>
