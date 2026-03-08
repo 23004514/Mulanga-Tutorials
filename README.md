@@ -32,4 +32,4 @@ Since these are simple static HTML files, you can deploy them to any static host
 - Keep the file names lowercase and use `.html` extension.
 - Feel free to add CSS or JavaScript files in the same directory and reference them from the HTML pages.
 
-Enjoy working with your website!
+Enjoy working with our website!
